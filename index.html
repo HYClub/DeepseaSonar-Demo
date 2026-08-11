@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深海声呐员 Deep Sea Sonar — 安卓版</title>
+<style>
+  :root {
+    --deep: #032b3d;
+    --mid: #0a4a63;
+    --cyan: #37e0e8;
+    --green: #3ef2a0;
+    --text: #dff6ff;
+    --dim: #8fc3d4;
+    --card: rgba(10, 74, 99, 0.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: radial-gradient(ellipse at 50% 0%, #0a4a63 0%, #032b3d 55%, #02121c 100%);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 20px 72px; }
+  header { text-align: center; margin-bottom: 40px; }
+  .logo {
+    display: inline-block;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--cyan);
+    text-shadow: 0 0 18px rgba(55, 224, 232, 0.55);
+    margin-bottom: 8px;
+  }
+  .sub { font-size: 18px; color: var(--dim); letter-spacing: 2px; }
+  .badge { margin-top: 12px; display: inline-block; font-size: 13px; color: var(--green);
+    border: 1px solid rgba(62, 242, 160, 0.5); border-radius: 20px; padding: 4px 16px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(55, 224, 232, 0.22);
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-bottom: 26px;
+    backdrop-filter: blur(4px);
+  }
+  h2 { font-size: 22px; color: var(--cyan); margin-bottom: 14px; letter-spacing: 1px; }
+  p { line-height: 1.9; color: var(--text); font-size: 15px; }
+  ul { margin: 10px 0 0 20px; line-height: 2; font-size: 15px; }
+  li::marker { color: var(--cyan); }
+
+  .screens { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .screens figure { margin: 0; }
+  .screens img { width: 100%; border-radius: 10px; border: 1px solid rgba(55, 224, 232, 0.25);
+    transition: transform 0.2s ease; display: block; }
+  .screens img:hover { transform: scale(1.03); }
+  .screens figcaption { font-size: 12px; color: var(--dim); text-align: center; margin-top: 6px; }
+
+  .dl { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .btn {
+    display: inline-block; text-decoration: none;
+    background: linear-gradient(135deg, var(--cyan), #1fa8c0);
+    color: #02222e; font-weight: 700; font-size: 18px;
+    padding: 14px 34px; border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(55, 224, 232, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(55, 224, 232, 0.5); }
+  .hint { font-size: 13px; color: var(--dim); }
+  footer { text-align: center; margin-top: 40px; font-size: 13px; color: var(--dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">深 海 声 呐 员</div>
+    <div class="sub">DEEP SEA SONAR</div>
+    <div class="badge">安卓 横屏 · 声呐扫描训练游戏</div>
+  </header>
+
+  <section class="card">
+    <h2>游戏简介</h2>
+    <p>驾驶声呐船驶入深海，用声呐波扫描漆黑的海底，在密密麻麻的回声中找到任务卡指定的目标生物。
+    扫描光经过的一瞬间，你必须快速判断、点按并短暂按住正确目标——抓住它，忽略外形相近的干扰物，
+    绝不触碰受保护的海洋生物与危险的沉船残骸。</p>
+  </section>
+
+  <section class="card">
+    <h2>训练目标</h2>
+    <ul>
+      <li><b>选择性注意</b> — 从大量相似回声里锁定目标任务</li>
+      <li><b>抗干扰</b> — 排除外形相近的干扰目标与视觉杂波</li>
+      <li><b>反应抑制</b> — 忍住不点击保护生物与危险残骸</li>
+    </ul>
+    <p style="margin-top:12px">专注操作会为「清晰声波」充能，激活后可加快扫描频率、扩大扫描半径，但选择永远掌握在你自己手中。</p>
+  </section>
+
+  <section class="card">
+    <h2>玩法特色</h2>
+    <ul>
+      <li>真实声呐表现：扫描波点亮海底，回声随海床移动并逐渐消散</li>
+      <li>十余种海洋生物：沙丁鱼、蓝龟、天使鱼、暗沙丁鱼、珍稀沙丁鱼…</li>
+      <li>移动目标、变向游动、乌贼式突进，难度逐关推进</li>
+      <li>完整星级评价：命中率、误触率、平均反应时间、连续正确次数</li>
+      <li>关卡地图探索 + 金币星级奖励，10 个由浅入深的关卡</li>
+      <li>横屏自适应 UI，16:9 / 4:3 全面屏均适配</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>游戏截图</h2>
+    <div class="screens">
+      <figure><img src="screenshots/Splash.jpg" alt="启动画面"><figcaption>启动画面</figcaption></figure>
+      <figure><img src="screenshots/Main.jpg" alt="主菜单"><figcaption>主菜单</figcaption></figure>
+      <figure><img src="screenshots/Task.jpg" alt="任务卡"><figcaption>任务卡</figcaption></figure>
+      <figure><img src="screenshots/Level.jpg" alt="关卡内"><figcaption>关卡内 · 声呐扫描</figcaption></figure>
+      <figure><img src="screenshots/map.jpg" alt="选关地图"><figcaption>选关地图</figcaption></figure>
+      <figure><img src="screenshots/Setting.jpg" alt="设置"><figcaption>设置</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>下载安卓版</h2>
+    <div class="dl">
+      <a class="btn" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepseaSonar.apk">⬇ 下载安卓 APK</a>
+      <span class="hint">Android 8.0+ ｜ 约 40MB ｜ 横屏运行，安装时请允许「未知来源」</span>
+    </div>
+  </section>
+
+  <footer>深海声呐员 Deep Sea Sonar · Demo 页面 · 由 Locus 生成</footer>
+</div>
+</body>
+</html>
