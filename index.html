@@ -67,6 +67,62 @@
   }
   .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(55, 224, 232, 0.5); }
   .hint { font-size: 13px; color: var(--dim); }
+
+  /* ===== 右侧浮动窗：版本更新 + 下载 ===== */
+  .float-panel {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    max-height: 82vh;
+    overflow-y: auto;
+    background: rgba(6, 34, 48, 0.92);
+    border: 1px solid rgba(55, 224, 232, 0.35);
+    border-radius: 14px;
+    padding: 18px 18px 14px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    z-index: 50;
+  }
+  .float-panel h3 {
+    color: var(--cyan); font-size: 17px; letter-spacing: 1px;
+    margin-bottom: 12px; border-bottom: 1px solid rgba(55,224,232,0.25); padding-bottom: 8px;
+  }
+  .float-panel details { margin-bottom: 8px; }
+  .float-panel summary {
+    cursor: pointer; color: var(--green); font-weight: 700; font-size: 14px;
+    padding: 6px 8px; border-radius: 6px; background: rgba(55,224,232,0.08);
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+  }
+  .float-panel summary:hover { background: rgba(55,224,232,0.16); }
+  .float-panel summary::after { content: "▾"; color: var(--cyan); transition: transform .2s; }
+  .float-panel details[open] summary::after { transform: rotate(180deg); }
+  .float-panel details ul { margin: 6px 0 8px 18px; line-height: 1.7; font-size: 13px; }
+  .float-panel .ver-date { display: block; font-size: 11px; color: var(--dim); font-weight: 400; }
+  .float-panel .dl-box { border-top: 1px solid rgba(55,224,232,0.25); padding-top: 12px; margin-top: 6px; }
+  .float-panel .btn {
+    display: block; text-align: center; font-size: 15px; padding: 10px 12px; margin-bottom: 8px;
+  }
+  .float-panel .btn.small { font-size: 14px; }
+  .float-panel .hint { font-size: 11px; text-align: center; }
+  .ver-tag-new {
+    display: inline-block; margin-left: 4px; font-size: 11px; font-weight: 700;
+    color: #fff; background: #e74c3c; border-radius: 8px; padding: 1px 6px;
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.55} }
+  .ver-tag {
+    display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 400;
+    color: var(--deep); background: var(--green); border-radius: 8px; padding: 1px 7px;
+  }
+  /* 窄屏时浮动窗移到顶部横排 */
+  @media (max-width: 1180px) {
+    .float-panel {
+      position: static; width: auto; max-height: none;
+      transform: none; margin: 0 0 26px;
+    }
+  }
   footer { text-align: center; margin-top: 40px; font-size: 13px; color: var(--dim); }
 </style>
 </head>
@@ -122,7 +178,7 @@
   <section class="card">
     <h2>在线试玩</h2>
     <div class="dl">
-      <a class="btn" href="game/index.html">▶ 立即开始游玩</a>
+      <a class="btn" href="game/index.html">▶ 立即开始游玩 <span class="ver-tag" data-ver="webgl"></span></a>
       <span class="hint">WebGL 版 ｜ 首次加载约 56MB，之后浏览器会缓存 ｜ 建议在 PC 浏览器中试玩</span>
     </div>
   </section>
@@ -130,14 +186,64 @@
   <section class="card">
     <h2>下载游戏</h2>
     <div class="dl">
-      <a class="btn" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepseaSonar.apk">⬇ 下载安卓版 APK</a>
+      <a class="btn" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepseaSonar.apk">⬇ 下载安卓版 APK <span class="ver-tag" data-ver="apk"></span></a>
       <span class="hint">Android 8.0+ ｜ 约 40MB ｜ 横屏运行，安装时请允许「未知来源」</span>
-      <a class="btn" style="margin-top:8px" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepSeaSonar-win.rar">⬇ 下载 Windows 版</a>
+      <a class="btn" style="margin-top:8px" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepSeaSonar-win.rar">⬇ 下载 Windows 版 <span class="ver-tag" data-ver="win"></span></a>
       <span class="hint">Windows 10/11 ｜ 约 37MB ｜ 解压后运行 DeepSeaSonar.exe</span>
     </div>
   </section>
 
+
+  <!-- 右侧浮动窗 -->
+  <aside class="float-panel">
+    <h3>版本更新</h3>
+    <details open>
+      <summary>v1.1.0 <span class="ver-date">2026-08-12</span></summary>
+      <ul>
+        <li>增加多语言系统，可以在主页面切换（中文/English）</li>
+      </ul>
+    </details>
+    <details>
+      <summary>v1.0.0 <span class="ver-date">2026-08-11</span></summary>
+      <ul>
+        <li>首个公开版本：10 个关卡</li>
+        <li>声呐扫描核心玩法 + 星级评价</li>
+        <li>安卓 / Windows 双平台</li>
+      </ul>
+    </details>
+    <div class="dl-box">
+      <a class="btn small" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepseaSonar.apk">⬇ 下载安卓 APK <span class="ver-tag" data-ver="apk"></span></a>
+      <a class="btn small" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepSeaSonar-win.rar">⬇ 下载 Windows 版 <span class="ver-tag" data-ver="win"></span></a>
+      <div class="hint">Android 8.0+ ｜ Win10/11</div>
+    </div>
+  </aside>
+
   <footer>深海声呐员 Deep Sea Sonar · Demo 页面</footer>
 </div>
+
+<script>
+  // ===== 版本号统一管理（只改这里）=====
+  const VERSIONS = {
+    apk:   'v1.1.0',   // 安卓 APK
+    win:   'v1.0.0',   // Windows
+    webgl: 'v1.0.0'    // 在线试玩 WebGL
+  };
+  const LATEST = 'apk';   // 当前最新版本标识（对应的版本号后显示红色"新"）
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-ver]').forEach(function(el) {
+      var key = el.getAttribute('data-ver');
+      var v = VERSIONS[key];
+      if (!v) return;
+      el.textContent = v;
+      if (key === LATEST) {
+        var n = document.createElement('span');
+        n.className = 'ver-tag-new';
+        n.textContent = '新';
+        el.appendChild(n);
+      }
+    });
+  });
+</script>
 </body>
 </html>
