@@ -178,7 +178,7 @@
   <section class="card">
     <h2>在线试玩</h2>
     <div class="dl">
-      <a class="btn disabled-link" href="javascript:void(0)">▶ 立即开始游玩 <span class="ver-tag" data-ver="webgl"></span></a>
+      <a class="btn" href="game/index.html">▶ 立即开始游玩 <span class="ver-tag" data-ver="webgl"></span></a>
       <span class="hint">WebGL 版 ｜ 首次加载约 56MB，之后浏览器会缓存 ｜ 建议在 PC 浏览器中试玩</span>
     </div>
   </section>
@@ -186,9 +186,9 @@
   <section class="card">
     <h2>下载游戏</h2>
     <div class="dl">
-      <a class="btn disabled-link" href="javascript:void(0)">⬇ 下载安卓版 APK <span class="ver-tag" data-ver="apk"></span></a>
+      <a class="btn" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepseaSonar.apk">⬇ 下载安卓版 APK <span class="ver-tag" data-ver="apk"></span></a>
       <span class="hint">Android 8.0+ ｜ 约 40MB ｜ 横屏运行，安装时请允许「未知来源」</span>
-      <a class="btn disabled-link" style="margin-top:8px" href="javascript:void(0)">⬇ 下载 Windows 版 <span class="ver-tag" data-ver="win"></span></a>
+      <a class="btn" style="margin-top:8px" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepSeaSonar-win.rar">⬇ 下载 Windows 版 <span class="ver-tag" data-ver="win"></span></a>
       <span class="hint">Windows 10/11 ｜ 约 37MB ｜ 解压后运行 DeepSeaSonar.exe</span>
     </div>
   </section>
@@ -221,8 +221,8 @@
       </ul>
     </details>
     <div class="dl-box">
-      <a class="btn small disabled-link" href="javascript:void(0)">⬇ 下载安卓 APK <span class="ver-tag" data-ver="apk"></span></a>
-      <a class="btn small disabled-link" href="javascript:void(0)">⬇ 下载 Windows 版 <span class="ver-tag" data-ver="win"></span></a>
+      <a class="btn small" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepseaSonar.apk">⬇ 下载安卓 APK <span class="ver-tag" data-ver="apk"></span></a>
+      <a class="btn small" href="https://github.com/HYClub/DeepseaSonar-Demo/releases/latest/download/DeepSeaSonar-win.rar">⬇ 下载 Windows 版 <span class="ver-tag" data-ver="win"></span></a>
       <div class="hint">Android 8.0+ ｜ Win10/11</div>
     </div>
   </aside>
@@ -251,18 +251,6 @@
         n.textContent = '新';
         el.appendChild(n);
       }
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var msg = '合作已中止，如需试玩/下载 请联系作者';
-    document.querySelectorAll('.disabled-link').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        alert(msg);
-      });
     });
   });
 </script>
